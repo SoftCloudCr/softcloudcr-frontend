@@ -1,24 +1,27 @@
-//import { useState } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+// App.jsx
+import { Routes, Route } from "react-router-dom";
+import LoginEmpleado from "./pages/empleado/LoginEmpleado";
+import DashboardEmpleado from "./pages/empleado/DashboardEmpleado";
+import PrivateRoute from "./components/PrivateRoute";
+import { AuthProvider } from "./context/AuthContext";
 
-//import TestTailwind from './components/TestTailwind'
-
-export default function App() {
+function App() {
   return (
-    <div className="bg-blue-800 h-screen  flex justify-center items-center">
-      <h1 className="text-blue text-3xl font-bold">
-        Ahora SÍ debería funcionar 🚀
-      </h1>
-
-      <div className="bg-green-500 text-white p-5 text-xl">
-      ¡Esto sí tiene que funcionar!
-    </div>
-    <div className="text-red-500">Texto negro</div>
-
-    </div>
-    
+    <AuthProvider>
+      <Routes>
+        <Route path="/empresa/:slug/login" element={<LoginEmpleado />} />
+        <Route
+          path="/empresa/:slug/dashboard"
+          element={
+            <PrivateRoute>
+              <DashboardEmpleado />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+    </AuthProvider>
   );
 }
 
+export default App;

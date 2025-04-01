@@ -1,0 +1,11 @@
+
+{
+    "login": {
+      "title": "Ingreso de Empleado",
+      "code": "Código de empleado",
+      "password": "Contraseña",
+      "button": "Iniciar Sesión",
+      "error": "Por favor complete todos los campos."
+    }
+  }
+  

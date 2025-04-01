@@ -1,0 +1,11 @@
+
+{
+    "login": {
+      "title": "Employee Login",
+      "code": "Employee Code",
+      "password": "Password",
+      "button": "Login",
+      "error": "Please complete all fields."
+    }
+  }
+  
