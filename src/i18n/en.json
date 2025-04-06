@@ -6,6 +6,21 @@
       "password": "Password",
       "button": "Login",
       "error": "Please complete all fields."
-    }
+    },
+    "dashboard": {
+  "welcome": "Welcome",
+  "logout": "Logout"
+},
+"sidebar": {
+  "capacitaciones": "Trainings",
+  "intentos": "Attempts",
+  "resultados": "Results",
+  "clave": "Change Password",
+  "idioma": "Language",
+  "logout":"Logout"
+},
+"idioma": {
+  "titulo": "Select your language"
+}
   }
   

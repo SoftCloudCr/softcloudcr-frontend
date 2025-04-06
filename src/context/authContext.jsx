@@ -10,12 +10,14 @@ export const AuthProvider = ({ children }) => {
     const data = localStorage.getItem("softcloudcr-session");
     if (data) {
       setUsuario(JSON.parse(data));
+      console.log(data);
     }
   }, []);
 
   const login = (data) => {
     localStorage.setItem("softcloudcr-session", JSON.stringify(data));
     setUsuario(data);
+    console.log(data);
   };
 
   const logout = () => {

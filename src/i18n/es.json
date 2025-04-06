@@ -6,6 +6,22 @@
       "password": "Contraseña",
       "button": "Iniciar Sesión",
       "error": "Por favor complete todos los campos."
-    }
+    },
+
+    "dashboard": {
+  "welcome": "Bienvenido",
+  "logout": "Cerrar sesión"
+},
+"sidebar": {
+  "capacitaciones": "Capacitaciones",
+  "intentos": "Intentos",
+  "resultados": "Resultados",
+  "clave": "Cambiar clave",
+  "idioma": "Idioma",
+  "logout": "Cerrar sesión"
+},
+"idioma": {
+  "titulo": "Selecciona tu idioma"
+}
   }
   

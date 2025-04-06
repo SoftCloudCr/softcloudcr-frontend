@@ -12,6 +12,17 @@ module.exports = {
       error: '#EF4444',
       exito: '#10B981',
       fondo_estatico:'#d9eaef',
+      primario_2: '#7DA0CA',       // Botones, navbar
+      secundario_2: '#1E40AF',     // Sidebar, hovers
+      acento_2: '#60A5FA',         // Íconos, detalles
+      fondo_2: '#F9FAFB',          // Fondo general del sistema
+      tarjeta: '#FFFFFF',        // Formularios, cards
+      borde_2: '#E5E7EB',          // Separadores
+      texto_2: '#1F2937',          // Texto principal
+      'texto-suave': '#6B7280',  // Subtítulos, placeholder
+      error_2: '#EF4444',          // Errores
+      exito_2: '#10B981',          // Confirmación, verde
+      warning: '#F59E0B'         // Alertas
     },
 
     keyframes: {

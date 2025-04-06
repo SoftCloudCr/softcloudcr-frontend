@@ -76,7 +76,7 @@ console.log("exito");
         </h2>
 
         {error && (
-          <div className="bg-red-100 text-red-700 p-3 rounded mb-4 text-sm">
+          <div className="bg-red-100 shadow-sm shadow-[#EF4444] text-red-700 p-3 rounded mb-4 text-sm">
             {error}
           </div>
         )}
@@ -99,7 +99,7 @@ console.log("exito");
 
         <button
           type="submit"
-          className="w-full bg-blue-500 shadow-lg text-white py-2 rounded-lg hover:bg-secundario transition  "
+          className="w-full bg-primario shadow-lg text-white py-2 rounded-lg hover:bg-secundario transition  "
         >
         {t("login.button")}
         </button>

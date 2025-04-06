@@ -1,6 +1,12 @@
-export default function DashboardEmpleado() {
-    return (
-      <div className="p-10 text-xl">Dashboard del empleado</div>
-    );
-  }
-  
+import EmpleadoLayout from "../../layouts/EmpleadoLayout";
+
+const DashboardEmpleado = () => {
+  return (
+    <EmpleadoLayout>
+      <h2 className="text-xl font-semibold mb-4">Capacitaciones activas</h2>
+      {/* Aquí van las cards */}
+    </EmpleadoLayout>
+  );
+};
+
+export default DashboardEmpleado;
