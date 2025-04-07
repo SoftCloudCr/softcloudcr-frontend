@@ -75,7 +75,7 @@ const SidebarEmpleado = ({ expanded, setExpanded }) => {
 
   return (
     <aside
-      className={`bg-secundario_2 shadow-md z-40 h-full transition-all duration-300 flex flex-col justify-between ${
+      className={`bg-gradient-to-b from-[#005BDB]  via-[#2BA1ED]  to-[#F9FAFB] shadow-lg shadow-[#2BA1ED] z-50 h-full transition-all duration-300 flex flex-col justify-between ${
         expanded ? "w-64" : "w-20"
       }`}
     >

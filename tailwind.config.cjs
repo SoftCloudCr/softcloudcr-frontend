@@ -26,9 +26,15 @@ module.exports = {
     },
 
     keyframes: {
-      softpulse: {
-        '0%, 100%': { opacity: '1' },
-        '50%': { opacity: '0.5' },
+      tittlepulse: {
+        '0%, 100%': {
+           opacity: '0.7',
+            transform: 'scale(1)'
+           },
+        '50%': { 
+          opacity: '1',
+          transform: 'scale(1.03)' 
+        },
       },
       cloudpulse: {
         '0%, 100%': {
@@ -42,7 +48,7 @@ module.exports = {
       },
     },
     animation: {
-      softpulse: 'softpulse 4s ease-in-out infinite',
+      tittlepulse: 'tittlepulse 4s ease-in-out 3',
       cloudpulse: 'cloudpulse 4s ease-in-out infinite',
     },
 
