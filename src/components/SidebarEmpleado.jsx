@@ -95,7 +95,7 @@ const SidebarEmpleado = ({ expanded, setExpanded }) => {
     <CustomTooltip label={item.label}>
       <button
         onClick={() => handleNavigate(item.route)}
-        className="flex  items-center gap-2 px-2 py-2 text-[#1F2937] hover:text-[#6B7280] w-full transition"
+        className="flex  items-center gap-2 px-2 py-2 text-[#F9FAFB] hover:text-[#7DA0CA]  hover:scale-105  w-full transition"
       >
         {item.icon}
         {expanded && <span>{item.label}</span>}
@@ -111,7 +111,7 @@ const SidebarEmpleado = ({ expanded, setExpanded }) => {
               onClick={toggleIdioma}
              
               
-              className="flex items-center gap-2 px-2 py-2 text-gray-700 hover:text-blue-600 w-full transition"
+              className="flex items-center gap-2 px-2 py-2 text-[#F9FAFB] hover:text-[#7DA0CA] hover:scale-105 w-full transition"
             >
                 
               <Languages size={20} />
@@ -124,7 +124,7 @@ const SidebarEmpleado = ({ expanded, setExpanded }) => {
                 <button
                   onClick={() => cambiarIdioma("es")}
                  
-                  className={`block text-left text-sm w-full text-gray-600 hover:text-blue-500 ${
+                  className={`block text-left text-sm w-full text-[#C3D2D6] hover:text-[#7DA0CA] ${
                     i18n.language === "es" ? "font-semibold" : ""
                   }`}
                 >
@@ -134,7 +134,7 @@ const SidebarEmpleado = ({ expanded, setExpanded }) => {
                 <button
                   onClick={() => cambiarIdioma("en")}
                   
-                  className={`block text-left text-sm w-full text-gray-600 hover:text-blue-500 ${
+                  className={`block text-left text-sm w-full text-[#F9FAFB] hover:text-[#7DA0CA] ${
                     i18n.language === "en" ? "font-semibold" : ""
                   }`}
                 >
@@ -153,7 +153,7 @@ const SidebarEmpleado = ({ expanded, setExpanded }) => {
         <button
           onClick={logout}
         
-          className="flex items-center gap-2 text-red-500 hover:text-red-700 px-2 py-2 w-full transition"
+          className="flex items-center gap-2 text-red-500 hover:scale-105 hover:text-red-700 px-2 py-2 w-full transition"
         >
           <LogOut size={20} />
           {expanded && <span>{t("sidebar.logout")}</span>}
