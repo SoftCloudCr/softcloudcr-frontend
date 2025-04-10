@@ -46,10 +46,33 @@ module.exports = {
           opacity: '1'
         },
       },
+      notificacionpulse: {
+        '0%, 100%': {
+          transform: 'scale(1)',
+          opacity: '0.9',
+          
+        },
+        '50%': {
+          transform: 'scale(1.03)',
+          opacity: '1'
+        },
+      },
+      campanapulse: {
+        '0%, 100%': {
+          
+          transform: 'rotate(10deg)',
+        },
+        '50%': {
+          transform: 'rotate(-10deg)',
+        
+        },
+      },
     },
     animation: {
       tittlepulse: 'tittlepulse 4s ease-in-out 3',
       cloudpulse: 'cloudpulse 4s ease-in-out infinite',
+      notificacionpulse: 'notificacionpulse 4s ease-in-out infinite',
+      campanapulse: 'campanapulse 0.5s infinite'
     },
 
   } },
