@@ -1,10 +1,12 @@
 // src/App.jsx
 // App.jsx
 import { Routes, Route } from "react-router-dom";
-import LoginEmpleado from "./pages/empleado/LoginEmpleado";
-import DashboardEmpleado from "./pages/empleado/DashboardEmpleado";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
+//Rutas de la pagina
+import LoginEmpleado from "./pages/empleado/LoginEmpleado";
+import DashboardEmpleado from "./pages/empleado/DashboardEmpleado";
+import CapacitacionesEmpleado from "./pages/empleado/CapacitacionesEmpleado";
 
 function App() {
   return (
@@ -18,6 +20,14 @@ function App() {
               <DashboardEmpleado />
             </PrivateRoute>
           }
+        />
+        <Route 
+        path="/empresa/:slug/capacitaciones"
+        element ={
+          <PrivateRoute>
+            <CapacitacionesEmpleado />
+          </PrivateRoute>
+        }
         />
       </Routes>
     </AuthProvider>

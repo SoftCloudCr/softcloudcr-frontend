@@ -17,8 +17,14 @@
   "resultados": "Results",
   "clave": "Change Password",
   "idioma": "Language",
-  "logout":"Logout"
+  "logout":"Logout",
+  "inicio":"Home"
 },
+"capacitacion":{
+"fecha_limite" :"End Date"
+
+},
+
 "idioma": {
   "titulo": "Select your language"
 }

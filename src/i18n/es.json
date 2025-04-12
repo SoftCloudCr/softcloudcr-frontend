@@ -18,10 +18,18 @@
   "resultados": "Resultados",
   "clave": "Cambiar clave",
   "idioma": "Idioma",
-  "logout": "Cerrar sesión"
+  "logout": "Cerrar sesión",
+  "inicio":"Inicio"
+},
+"capacitacion":{
+"fecha_limite" :"Fecha Limite"
+
 },
 "idioma": {
   "titulo": "Selecciona tu idioma"
+},
+"notificacion":{
+  
 }
   }
   

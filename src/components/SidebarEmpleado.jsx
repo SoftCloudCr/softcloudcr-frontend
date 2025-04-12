@@ -9,6 +9,7 @@ import {
   LogOut,
   ChevronLeft,
   ChevronRight,
+  Home,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
@@ -26,9 +27,14 @@ const SidebarEmpleado = ({ expanded, setExpanded }) => {
 
   const navItems = [
     {
+      icon:<Home size={20} />,
+      label: t("sidebar.inicio"),
+      route:`/empresa/${slug}/dashboard`,
+    },
+    {
       icon: <Book size={20} />,
       label: t("sidebar.capacitaciones"),
-      route: `/empresa/${slug}/dashboard`,
+      route: `/empresa/${slug}/capacitaciones`,
     },
     {
       icon: <BarChart size={20} />,

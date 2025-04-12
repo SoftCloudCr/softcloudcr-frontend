@@ -22,7 +22,10 @@ module.exports = {
       'texto-suave': '#6B7280',  // Subtítulos, placeholder
       error_2: '#EF4444',          // Errores
       exito_2: '#10B981',          // Confirmación, verde
-      warning: '#F59E0B'         // Alertas
+      warning: '#F59E0B',        // Alertas
+      from: '#005BDB',
+      via:'#2BA1ED',
+      to:'#F9FAFB'
     },
 
     keyframes: {
