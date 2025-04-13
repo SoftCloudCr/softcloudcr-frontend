@@ -23,7 +23,7 @@ function CapacitacionesEmpleado() {
           `http://localhost:4000/api/empleado/capacitaciones/pendientes/${usuario.id_usuario}/8`
         );
         setCapacitaciones(res.data);
-        console.log("prueba :" + capacitaciones);
+        //console.log("prueba :" + capacitaciones);
       } catch (err) {
         console.error("Error cargando capacitaciones :", err);
       }
