@@ -62,7 +62,7 @@ console.log("exito");
     <img src={logo}
          alt="Logo_SoftCloudCR" 
          class="w-[15.75rem] h-auto 
-         object-contain z-10 h-auto object-contain animate-cloudpulse " />
+         object-contain z-10 animate-cloudpulse " />
   </div>
 
 

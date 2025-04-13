@@ -7,12 +7,15 @@ import { AuthProvider } from "./context/AuthContext";
 import LoginEmpleado from "./pages/empleado/LoginEmpleado";
 import DashboardEmpleado from "./pages/empleado/DashboardEmpleado";
 import CapacitacionesEmpleado from "./pages/empleado/CapacitacionesEmpleado";
+import VistaCapacitacion from "./pages/empleado/VistaCapacitacion";
 
 function App() {
   return (
     <AuthProvider>
       <Routes>
+        {/*Ruta del login  */}
         <Route path="/empresa/:slug/login" element={<LoginEmpleado />} />
+        {/*Ruta del dashboard  */}
         <Route
           path="/empresa/:slug/dashboard"
           element={
@@ -21,14 +24,26 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route 
-        path="/empresa/:slug/capacitaciones"
-        element ={
-          <PrivateRoute>
-            <CapacitacionesEmpleado />
-          </PrivateRoute>
-        }
+        {/*Ruta de las capacitaciones  */}
+        <Route
+          path="/empresa/:slug/capacitaciones"
+          element={
+            <PrivateRoute>
+              <CapacitacionesEmpleado />
+            </PrivateRoute>
+          }
         />
+        {/*Ruta del Vista Capacitacion  */}
+          <Route
+          path="/empresa/:slug/capacitacion/:id_asignacion"
+          element = {
+            <PrivateRoute>
+              <VistaCapacitacion/>
+            </PrivateRoute>
+          }
+
+          />
+
       </Routes>
     </AuthProvider>
   );

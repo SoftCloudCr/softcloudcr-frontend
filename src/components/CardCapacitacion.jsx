@@ -2,7 +2,7 @@
 import { BadgeCheck, AlertCircle, Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import logo from "../assets/graduacion.png";
-import { data } from "react-router-dom";
+//import { data } from "react-router-dom";
 
 const estadoColor = {
   Activa:
