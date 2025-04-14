@@ -23,7 +23,11 @@
 },
 "capacitacion":{
 "fecha_limite" :"Fecha Limite",
-"fecha_inicio": "Fecha Inicio"
+"fecha_inicio": "Fecha Inicio",
+"nota_minima": "Nota Minima",
+"material":"Ver Material",
+"iniciar_cuestionario": "Iniciar Cuestionario","intentos_disponibles_parte1": "Dispones de",
+"intentos_disponibles_parte2": "intentos para completar el cuestionario"
 
 },
 "idioma": {

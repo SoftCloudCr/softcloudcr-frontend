@@ -21,10 +21,14 @@
   "inicio":"Home"
 },
 "capacitacion":{
-"fecha_limite" :"End Date",
-"fecha_inicio": "Start Date"
+  "fecha_limite" :"End Date",
+  "fecha_inicio": "Start Date",
+  "nota_minima" : "Minimum Grade",
+  "material":"View Material",
+  "iniciar_cuestionario":"Start The Questionnaire",  "intentos_disponibles_parte1": "You have",
+  "intentos_disponibles_parte2": "attempts to complete the quiz"
 
-},
+  },
 
 "idioma": {
   "titulo": "Select your language"
