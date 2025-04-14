@@ -12,3 +12,4 @@ const CardProgreso = () => {
 };
 
 export default CardProgreso;
+  

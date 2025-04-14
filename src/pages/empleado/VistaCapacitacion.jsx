@@ -1,5 +1,6 @@
 import EmpleadoLayout from "../../layouts/EmpleadoLayout";
-import CuestionarioLayout from "../../layouts/CuestionarioLayaout";
+
+import CardVistaCapacitacion from "../../components/CardVistaCapcitacion";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import { useEffect, useState } from "react";
@@ -8,7 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 function VistaCapacitacion() {
   const { usuario } = useAuth(); // Trae todos los datos del usuario
   const { id_asignacion } = useParams();
-  const [capacitacion, setCapacitacion] = useState([]);
+  const [capacitacion, setCapacitacion] = useState(null);
 
   // Metodo para traer los datos de las  BD
   useEffect(() => {
@@ -23,7 +24,7 @@ function VistaCapacitacion() {
             console.warn("La respuesta vino vacía");
           }
           setCapacitacion (res.data);
-       // console.log("Datos de la capacitación:", res.data); 
+        console.log("Datos de la capacitación:", res.data); 
        console.table(res.data);
       } catch (err) {
         console.error("Error cargando capacitacion :", err);
@@ -32,9 +33,12 @@ function VistaCapacitacion() {
     fetchCapacitacion();
   },[id_asignacion]);
 
-  return <CuestionarioLayout>
+  return <EmpleadoLayout>
 
-  </CuestionarioLayout>;
+  <CardVistaCapacitacion data={capacitacion}>
+
+  </CardVistaCapacitacion>
+  </EmpleadoLayout>;
 }
 
 export default VistaCapacitacion;

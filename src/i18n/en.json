@@ -21,7 +21,8 @@
   "inicio":"Home"
 },
 "capacitacion":{
-"fecha_limite" :"End Date"
+"fecha_limite" :"End Date",
+"fecha_inicio": "Start Date"
 
 },
 

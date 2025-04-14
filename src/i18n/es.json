@@ -22,7 +22,8 @@
   "inicio":"Inicio"
 },
 "capacitacion":{
-"fecha_limite" :"Fecha Limite"
+"fecha_limite" :"Fecha Limite",
+"fecha_inicio": "Fecha Inicio"
 
 },
 "idioma": {

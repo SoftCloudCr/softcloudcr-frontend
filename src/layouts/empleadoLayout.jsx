@@ -15,13 +15,13 @@ const EmpleadoLayout = ({ children }) => {
       </div>
 
       {/* Contenedor principal con padding top para que el navbar no tape */}
-      <div className="flex w-full pt-16">
+      <div className="flex w-full pt-16 ">
 
         <SidebarEmpleado
           expanded={sidebarExpanded}
           setExpanded={setSidebarExpanded}
         />
-        <main className="p-16 flex-1 overflow-y-auto">{children}</main>
+        <main className="md:p-16 p-2 flex-1 transition-all overflow-y-auto">{children}</main>
       </div>
     </div>
   );
