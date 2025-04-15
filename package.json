@@ -12,6 +12,7 @@
   "dependencies": {
     "@radix-ui/react-tooltip": "^1.1.8",
     "axios": "^1.8.4",
+    "framer-motion": "^12.7.3",
     "i18next": "^24.2.3",
     "lucide-react": "^0.487.0",
     "react": "^19.0.0",
