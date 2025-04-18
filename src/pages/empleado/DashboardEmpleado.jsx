@@ -11,7 +11,10 @@ const DashboardEmpleado = () => {
         cantidad="2"
       />
       {/* Aquí van las cards */}
-<CardProgreso></CardProgreso>
+      <div className="sm:pl-28">
+      <CardProgreso></CardProgreso>
+      </div>
+
 
     </EmpleadoLayout>
   );

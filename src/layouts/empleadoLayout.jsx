@@ -15,13 +15,21 @@ const EmpleadoLayout = ({ children }) => {
       </div>
 
       {/* Contenedor principal con padding top para que el navbar no tape */}
-      <div className="flex w-full pt-16 ">
-
+      <div className="flex w-full pt-16 pl-16  md:pl-0   ">
+        
+        {sidebarExpanded && (
+          <div
+            className="fixed inset-0 bg-black/40 z-40 md:hidden"
+            onClick={() => setSidebarExpanded(false)}
+          />
+        )}
         <SidebarEmpleado
           expanded={sidebarExpanded}
           setExpanded={setSidebarExpanded}
         />
-        <main className="md:p-16 p-2 flex-1 transition-all overflow-y-auto">{children}</main>
+        <main className="  md:p-16 p-2 flex-1 transition-all overflow-y-auto">
+          {children}
+        </main>
       </div>
     </div>
   );

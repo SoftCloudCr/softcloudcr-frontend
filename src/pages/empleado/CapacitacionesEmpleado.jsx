@@ -20,7 +20,7 @@ function CapacitacionesEmpleado() {
       try {
         console.log(usuario.id_usuario);
         const res = await axios.get(
-          `http://localhost:4000/api/empleado/capacitaciones/pendientes/${usuario.id_usuario}/8`
+          `http://192.168.0.101:4000/api/empleado/capacitaciones/pendientes/${usuario.id_usuario}/8`
         );
         setCapacitaciones(res.data);
         //console.log("prueba :" + capacitaciones);

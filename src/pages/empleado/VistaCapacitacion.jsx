@@ -22,7 +22,7 @@ function VistaCapacitacion() {
       try {
         // Establecemos la constante que va a almacenar los datos
         const res = await axios.get(
-          `http://localhost:4000/api/capacitaciones/vista-previa/${id_asignacion}`
+          `http://192.168.0.101:4000/api/capacitaciones/vista-previa/${id_asignacion}`
         );
         if (!res.data || res.data.length === 0) {
           console.warn("La respuesta vino vacía");
@@ -52,8 +52,11 @@ function VistaCapacitacion() {
         data={capacitacion}
         onVerMaterial={abrirModalLista}
       >
-        {/* Renderizamos el modal si está activo */}
-        {mostrarModalLista && (
+
+      </CardVistaCapacitacion>
+
+              {/* Renderizamos el modal si está activo */}
+              {mostrarModalLista && (
           <ModalMateriales
             materiales={capacitacion?.archivos_pdf.map((pdf) => ({
               nombre: pdf.nombre_original,
@@ -63,7 +66,6 @@ function VistaCapacitacion() {
             onClose={() => setMostrarModalLista(false)}
           />
         )}
-      </CardVistaCapacitacion>
     </EmpleadoLayout>
   );
 }

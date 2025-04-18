@@ -29,7 +29,7 @@ function LoginEmpleado() {
     }
 
     try {
-      const res = await axios.post("http://localhost:4000/api/auth/login-empleado/"+slug, {
+      const res = await axios.post("http://192.168.0.101:4000/api/auth/login-empleado/"+slug, {
         codigo_empleado,
         clave,
         //slug,
@@ -45,6 +45,7 @@ function LoginEmpleado() {
         slug_empresa: slug
       }));
 console.log("exito");
+console.log("Login exitoso. Redirigiendo a:", `/empresa/${slug}/dashboard`);
       navigate(`/empresa/${slug}/dashboard`);
     } catch (err) {
       setError(err?.response?.data?.message || "Error al iniciar sesión.");

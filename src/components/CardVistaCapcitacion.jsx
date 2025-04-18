@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Award } from "lucide-react";
 
+
 const CardVistaCapacitacion = ({ data, onVerMaterial }) => {
   const { t } = useTranslation(); // Traduccion
   if (!data) {
@@ -45,7 +46,7 @@ const CardVistaCapacitacion = ({ data, onVerMaterial }) => {
       {/* Botones */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-6">
         <button
-          onClick={onVerMaterial} // ⬅️ usamos la función del padre
+          onClick={onVerMaterial} // ⬅️ usamos la función del padre este de encarga de mostrar el modal 1
           className="bg-white text-primario_2 border border-primario_2 rounded-xl px-6 py-2 font-medium shadow hover:bg-primario_2 hover:text-white hover:scale-105 transition-all"
         >
           {t("capacitacion.material")}
