@@ -44,8 +44,7 @@ function LoginEmpleado() {
         nombre_usuario,
         slug_empresa: slug
       }));
-console.log("exito");
-console.log("Login exitoso. Redirigiendo a:", `/empresa/${slug}/dashboard`);
+
       navigate(`/empresa/${slug}/dashboard`);
     } catch (err) {
       setError(err?.response?.data?.message || "Error al iniciar sesión.");

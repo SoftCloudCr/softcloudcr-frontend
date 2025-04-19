@@ -3,6 +3,8 @@ import NavbarEmpleado from "../components/NavbarEmpleado";
 import SidebarEmpleado from "../components/SidebarEmpleado";
 import SidebarCuestionario from "../components/SidebarCuestionario";
 
+import Temporizador from "../components/Temporizador";
+
 
 const CuestionarioLayout = ({ children }) => {
 
@@ -17,7 +19,8 @@ const CuestionarioLayout = ({ children }) => {
       <div className="flex w-full pt-8 md:pt-5">
 
 
-        <main className="p-16 flex-1 overflow-y-auto">{children}</main>
+
+        <main className="p-16 pt-28  md:p-16 flex-1 overflow-y-auto">{children}</main>
       </div>
     </div>
   );

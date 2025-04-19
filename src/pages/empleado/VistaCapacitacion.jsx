@@ -32,8 +32,7 @@ function VistaCapacitacion() {
           console.warn("La respuesta vino vacía");
         }
         setCapacitacion(res.data);
-        console.log("Datos de la capacitación:", res.data);
-        console.table(res.data);
+
       } catch (err) {
         console.error("Error cargando capacitacion :", err);
       }
