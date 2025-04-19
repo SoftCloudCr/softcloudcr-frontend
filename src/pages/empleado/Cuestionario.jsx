@@ -2,28 +2,35 @@ import CuestionarioLayout from "../../layouts/CuestionarioLayout";
 import PreguntaCard from "../../components/PreguntaCard";
 import Temporizador from "../../components/Temporizador";
 import { useEffect, useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import axios from "axios";
+import ModalCargaResultado from "../../components/ModalCargaResultado";
 
 const Cuestionario = () => {
-  const { id_asignacion } = useParams(); // viene desde la URL
-  const { usuario } = useAuth(); // trae id_usuario e id_empresa
+  const { id_asignacion } = useParams();
+  const { usuario } = useAuth();
+  const navigate = useNavigate();
+  const { slug } = useParams();
+
   const [preguntas, setPreguntas] = useState([]);
   const [indexActual, setIndexActual] = useState(0);
   const [respuestas, setRespuestas] = useState({});
   const [seleccionTemporal, setSeleccionTemporal] = useState([]);
   const tiempoRef = useRef(0);
 
-  // Cargar preguntas reales desde el backend
+  const [mostrarModalCarga, setMostrarModalCarga] = useState(false);
+  const [tiempoMinimoCumplido, setTiempoMinimoCumplido] = useState(false);
+  const [resultadoRecibido, setResultadoRecibido] = useState(false);
+  const [notaFinal, setNotaFinal] = useState(null);
+  const [estadoFinal, setEstadoFinal] = useState(null);
+
   useEffect(() => {
     const fetchPreguntas = async () => {
       try {
         const res = await axios.get(
           `http://192.168.0.101:4000/api/capacitaciones/resolver/${id_asignacion}?id_empresa=${usuario.id_empresa}&id_usuario=${usuario.id_usuario}`
         );
-
-        // Reformatear preguntas para que encajen con el componente visual
         const preguntasFormateadas = res.data.preguntas.map((p) => ({
           ...p,
           id: p.id_pregunta,
@@ -33,17 +40,26 @@ const Cuestionario = () => {
             texto: o.texto,
           })),
         }));
-
         setPreguntas(preguntasFormateadas);
       } catch (err) {
         console.error("Error cargando preguntas:", err);
       }
     };
-
     fetchPreguntas();
   }, [id_asignacion, usuario]);
 
-  // Actualizar selección temporal al cambiar de pregunta
+  useEffect(() => {
+    if (tiempoMinimoCumplido && resultadoRecibido) {
+      navigate(`/empresa/${slug}/resultado/`, {
+        state: {
+          nota: notaFinal,
+          aprobado: estadoFinal,
+          tiempo: tiempoRef.current,
+        },
+      });
+    }
+  }, [tiempoMinimoCumplido, resultadoRecibido]);
+
   useEffect(() => {
     if (preguntas.length > 0) {
       const id = preguntas[indexActual]?.id;
@@ -67,20 +83,38 @@ const Cuestionario = () => {
 
   const puedeAvanzar = seleccionTemporal.length > 0;
 
-  const enviarRespuestas = () => {
-    console.log("📝 Respuestas:", respuestas);
-    console.log("⏱ Tiempo total:", tiempoRef.current, "segundos");
+  const enviarRespuestas = async () => {
+    setMostrarModalCarga(true);
+    setTimeout(() => setTiempoMinimoCumplido(true), 3000);
 
-    // Aquí podés hacer tu POST a la API
-    // axios.post("/api/cuestionarios/responder", { respuestas, tiempo: tiempoRef.current })
+    const payload = {
+        id_asignacion: parseInt(id_asignacion),
+        id_empresa: usuario.id_empresa,
+        id_usuario: usuario.id_usuario,
+        respuestas: Object.entries(respuestas).map(([id_pregunta, opciones]) => ({
+          id_pregunta: parseInt(id_pregunta),
+          respuestas: opciones,
+        })),
+        duracion_segundos: tiempoRef.current // ⬅️ AÑADIDO
+      };
+      
+
+    try {
+      const res = await axios.post("http://192.168.0.101:4000/api/intentos/", payload);
+      setNotaFinal(res.data.nota);
+      setEstadoFinal(res.data.aprobado);
+      setResultadoRecibido(true);
+    } catch (err) {
+      console.error("❌ Error al enviar respuestas:", err);
+    }
   };
 
   const preguntaActual = preguntas[indexActual];
 
   return (
     <CuestionarioLayout>
+      <ModalCargaResultado visible={mostrarModalCarga} />
       <Temporizador onTick={manejarTiempo} />
-
       {preguntaActual && (
         <div className="min-h-screen flex flex-col items-center">
           <PreguntaCard
@@ -88,7 +122,6 @@ const Cuestionario = () => {
             seleccionadas={seleccionTemporal}
             onSeleccionar={manejarSeleccion}
           />
-
           <div className="flex gap-4 mt-4">
             {indexActual > 0 && (
               <button
@@ -98,7 +131,6 @@ const Cuestionario = () => {
                 Anterior
               </button>
             )}
-
             {indexActual < preguntas.length - 1 && (
               <button
                 onClick={() => setIndexActual((prev) => prev + 1)}
@@ -112,7 +144,6 @@ const Cuestionario = () => {
                 Siguiente
               </button>
             )}
-
             {indexActual === preguntas.length - 1 && (
               <button
                 onClick={enviarRespuestas}

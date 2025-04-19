@@ -18,7 +18,7 @@ const ModalCargaResultado = ({ visible }) => {
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="w-full max-w-md rounded-xl bg-white shadow-lg p-6 space-y-6 text-center">
           <div className="flex justify-center">
-            <Loader2 className="h-12 w-12 animate-spin text-blue-600" />
+            <Loader2 className="h-12 w-12 animate-spin text-via" />
           </div>
 
           <Dialog.Title className="text-xl font-bold text-gray-800">
@@ -30,15 +30,15 @@ const ModalCargaResultado = ({ visible }) => {
 
           {/* Barra de animación progresiva infinita */}
           <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden mt-4">
-            <motion.div
-              className="h-full bg-blue-500"
+          <motion.div
+              className="h-full bg-gradient-to-r rounded-full from-from  via-via  to-to "
               animate={{ x: ["-100%", "100%"] }}
               transition={{
                 repeat: Infinity,
-                duration: 1.5,
-                ease: "easeInOut"
+                duration: 2.1,
+                ease: "circIn"
               }}
-              style={{ width: "50%" }}
+              style={{ width: "100%" }}
             />
           </div>
         </Dialog.Panel>

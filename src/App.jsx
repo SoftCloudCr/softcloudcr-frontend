@@ -9,6 +9,8 @@ import DashboardEmpleado from "./pages/empleado/DashboardEmpleado";
 import CapacitacionesEmpleado from "./pages/empleado/CapacitacionesEmpleado";
 import VistaCapacitacion from "./pages/empleado/VistaCapacitacion";
 import Cuestionario from "./pages/empleado/Cuestionario";
+import ResultadoCuestionario from "./pages/empleado/ResultadoCuestionario";
+
 
 function App() {
   return (
@@ -52,6 +54,7 @@ function App() {
             </PrivateRoute>
           }
           />
+<Route path="/empresa/:slug/resultado/" element={<ResultadoCuestionario />} />
 
       </Routes>
     </AuthProvider>

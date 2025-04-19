@@ -11,7 +11,7 @@ const CustomTooltip = ({ children, label }) => {
           <Tooltip.Content
             side="right"
             className="bg-secundario text-white text-sm px-3 py-1 rounded-md border border-white shadow-lg z-50"
-          >
+>          
             {label}
             <Tooltip.Arrow className="fill-white" />
           </Tooltip.Content>

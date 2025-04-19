@@ -7,18 +7,24 @@ import logo from "../assets/graduacion.png";
 const estadoColor = {
   Activa:
     "text-gray-100  bg-gradient-to-r from-green-400 from-20%   to-green-600 shadow-md shadow-green-200 hover:from-green-500 hover:to-green-700 hover:transform hover:scale-110  transition-all",
-  Pendiente:
+  pendiente:
     "text-gray-100  bg-gradient-to-r from-orange-400 from-20%   to-orange-600 shadow-md shadow-orange-200 hover:from-orange-500 hover:to-orange-700 hover:transform hover:scale-110  transition-all",
   Vencida:
     "text-gray-100 bg-gradient-to-r from-gray-400 from-20%   to-gray-600 shadow-md shadow-gray-200    transition-all ",
-  Reprobado:
+  reprobado:
   "text-gray-100  bg-gradient-to-r from-red-400 from-20%   to-red-600 shadow-md shadow-red-200 hover:from-red-500 hover:to-red-700 hover:transform hover:scale-110  transition-all",
-
+  en_progreso:
+  "text-gray-100  bg-gradient-to-r from-cyan-300 from-20%   to-cyan-500 shadow-md shadow-cyan-200 hover:from-cyan-500 hover:to-cyan-700 hover:transform hover:scale-110  transition-all",
 };
 
 function estado(data) {
   if (!data || !data.estado) return ""; // protección
-  return data.estado.charAt(0).toUpperCase() + data.estado.slice(1);
+
+  // Reemplaza guiones bajos por espacios
+  const estadoFormateado = data.estado.replace(/_/g, " ");
+  
+  // Capitaliza la primera letra del string
+  return estadoFormateado.charAt(0).toUpperCase() + estadoFormateado.slice(1);
 }
 /*
 const iconoPorEstado = {
@@ -30,9 +36,11 @@ const iconoPorEstado = {
 */
 const CardCapacitacion = ({ data, onClick }) => {
   const { t } = useTranslation();
-  //console.log(data.nombre_capacitacion);
+
   return (
+   
     <div
+    
   onClick={onClick}
   className="cursor-pointer bg-white hover:shadow-xl transition-all rounded-xl p-5 min-h-[200px] border border-gray-200 shadow-sm"
 >
@@ -52,12 +60,12 @@ const CardCapacitacion = ({ data, onClick }) => {
 
     {/* Estado */}
     <span
-      className={`text-xs font-medium px-3 py-1 border rounded-lg ${estadoColor[estado(data)]}`}
+      className={`text-xs font-medium px-3 py-1 border rounded-lg ${estadoColor[data.estado]}`}
     >
       {estado(data)}
     </span>
   </div>
-
+  {console.log(data.estado)}
   {/* PARTE INFERIOR: detalles en columnas */}
   <h3 className="text-lg font-semibold text-gray-800">
         {data.nombre_capacitacion}
