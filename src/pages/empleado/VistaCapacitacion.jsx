@@ -6,14 +6,18 @@ import { useNavigate, useParams } from "react-router-dom";
 import EmpleadoLayout from "../../layouts/EmpleadoLayout";
 import ModalMateriales from "../../components/ModalMateriales";
 import CardVistaCapacitacion from "../../components/CardVistaCapcitacion";
+import ModalConfirmacion from "../../components/ModalConfirmacion";
 
 function VistaCapacitacion() {
   const { usuario } = useAuth(); // Trae todos los datos del usuario
   const { id_asignacion } = useParams();
+  const navigate = useNavigate();
+  const { slug } = useParams();
   // Control de estados
   const [capacitacion, setCapacitacion] = useState(null);
   const [mostrarModal, setMostrarModal] = useState(false);
   const [mostrarModalLista, setMostrarModalLista] = useState(false);
+  const [mostrarModalConfirmacion,setMostrarModalConfirmacion] = useState(false)
 
   // Metodo para traer los datos de las  BD
   useEffect(() => {
@@ -45,12 +49,14 @@ function VistaCapacitacion() {
 
   const abrirModalLista = () => setMostrarModalLista(true);
   const cerrarModal = () => setMostrarModal(false);
+  const abrirModalConfirmacion = () => setMostrarModalConfirmacion(true);
 
   return (
     <EmpleadoLayout>
       <CardVistaCapacitacion
         data={capacitacion}
         onVerMaterial={abrirModalLista}
+        onVerConfirmacion={abrirModalConfirmacion}
       >
 
       </CardVistaCapacitacion>
@@ -66,6 +72,20 @@ function VistaCapacitacion() {
             onClose={() => setMostrarModalLista(false)}
           />
         )}
+
+{mostrarModalConfirmacion && (
+  <ModalConfirmacion
+    visible={mostrarModalConfirmacion}
+    onClose={() => setMostrarModalConfirmacion(false)}
+    onConfirm={() => navigate(`/empresa/${slug}/cuestionario/${id_asignacion}`)}
+    intento_actual={capacitacion.intento_actual}
+    intentos_permitidos={capacitacion.intentos_permitidos}
+    nota_minima={capacitacion.nota_minima}
+    fecha_limite={capacitacion.fecha_limite}
+  />
+)}
+
+
     </EmpleadoLayout>
   );
 }

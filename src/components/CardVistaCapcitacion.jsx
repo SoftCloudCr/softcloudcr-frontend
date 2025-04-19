@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Award } from "lucide-react";
 
 
-const CardVistaCapacitacion = ({ data, onVerMaterial }) => {
+const CardVistaCapacitacion = ({ data, onVerMaterial,onVerConfirmacion }) => {
   const { t } = useTranslation(); // Traduccion
   if (!data) {
     return <p className="text-center mt-10">Cargando información...</p>;
@@ -51,8 +51,12 @@ const CardVistaCapacitacion = ({ data, onVerMaterial }) => {
         >
           {t("capacitacion.material")}
         </button>
-        <button className="bg-green-600 text-white px-6 py-2 rounded-xl font-medium shadow hover:bg-green-700 hover:scale-105 transition-all">
+        <button 
+        className="bg-green-600 text-white px-6 py-2 rounded-xl font-medium shadow hover:bg-green-700 hover:scale-105 transition-all"
+         onClick={onVerConfirmacion} // ⬅️ usamos la función del padre este de encarga de mostrar el modal 1
+         >
           {t("capacitacion.iniciar_cuestionario")}
+          
         </button>
       </div>
 

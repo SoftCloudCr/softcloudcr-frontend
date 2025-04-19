@@ -8,6 +8,7 @@ import LoginEmpleado from "./pages/empleado/LoginEmpleado";
 import DashboardEmpleado from "./pages/empleado/DashboardEmpleado";
 import CapacitacionesEmpleado from "./pages/empleado/CapacitacionesEmpleado";
 import VistaCapacitacion from "./pages/empleado/VistaCapacitacion";
+import Cuestionario from "./pages/empleado/Cuestionario";
 
 function App() {
   return (
@@ -41,7 +42,15 @@ function App() {
               <VistaCapacitacion/>
             </PrivateRoute>
           }
-
+          />
+          {  /* Ruta de cuestionario */}
+          <Route 
+          path="/empresa/:slug/cuestionario/:id_asignacion"
+          element={
+            <PrivateRoute>
+              <Cuestionario/>
+            </PrivateRoute>
+          }
           />
 
       </Routes>
