@@ -2,11 +2,34 @@ import { useTranslation } from "react-i18next";
 import { Award } from "lucide-react";
 
 
+
 const CardVistaCapacitacion = ({ data, onVerMaterial,onVerConfirmacion }) => {
   const { t } = useTranslation(); // Traduccion
   if (!data) {
     return <p className="text-center mt-10">Cargando información...</p>;
   }
+
+  const intentos_restantes = (data) =>{
+
+    function intento_hecho  (data) {
+      if(!data.intentos_realizados ){
+        const intento_hecho = 0;
+        return intento_hecho;
+      }
+      const intento_hecho = data.intentos_realizados;
+      return intento_hecho
+    }
+    const intento = data.intentos_permitidos -intento_hecho(data);
+
+      return intento
+    }
+    const bloquearBoton = (data) =>{
+      console.log(data.estado_asignacion);
+      if (data.estado_asignacion == "reprobado" || data.estado_asignacion =="aprobado" ){
+        return true;
+      }
+      return false;
+    }
 
   return (
     <div className="flex flex-col h-auto w-11/12 mx-auto bg-white rounded-2xl border border-gray-200 shadow-lg p-6 transition-all duration-300">
@@ -52,8 +75,9 @@ const CardVistaCapacitacion = ({ data, onVerMaterial,onVerConfirmacion }) => {
           {t("capacitacion.material")}
         </button>
         <button 
-        className="bg-green-600 text-white px-6 py-2 rounded-xl font-medium shadow hover:bg-green-700 hover:scale-105 transition-all"
+        className="bg-green-600 disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-cyan-200 disabled:text-gray-900 text-white px-6 py-2 rounded-xl font-medium shadow hover:bg-green-700 hover:scale-105 transition-all"
          onClick={onVerConfirmacion} // ⬅️ usamos la función del padre este de encarga de mostrar el modal 1
+         disabled ={bloquearBoton(data)}
          >
           {t("capacitacion.iniciar_cuestionario")}
           
@@ -63,7 +87,7 @@ const CardVistaCapacitacion = ({ data, onVerMaterial,onVerConfirmacion }) => {
       {/* Intentos */}
       <p className="text-center text-gray-700 text-base">
         {t("capacitacion.intentos_disponibles_parte1")}{" "}
-        <span className="font-bold">{data.intentos_permitidos}</span>{" "}
+        <span className="font-bold">{intentos_restantes(data)}</span>{" "}
         {t("capacitacion.intentos_disponibles_parte2")}
       </p>
     </div>

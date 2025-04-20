@@ -5,7 +5,7 @@ import logo from "../assets/graduacion.png";
 //import { data } from "react-router-dom";
 
 const estadoColor = {
-  Activa:
+  aprobada:
     "text-gray-100  bg-gradient-to-r from-green-400 from-20%   to-green-600 shadow-md shadow-green-200 hover:from-green-500 hover:to-green-700 hover:transform hover:scale-110  transition-all",
   pendiente:
     "text-gray-100  bg-gradient-to-r from-orange-400 from-20%   to-orange-600 shadow-md shadow-orange-200 hover:from-orange-500 hover:to-orange-700 hover:transform hover:scale-110  transition-all",
@@ -65,7 +65,7 @@ const CardCapacitacion = ({ data, onClick }) => {
       {estado(data)}
     </span>
   </div>
-  {console.log(data.estado)}
+ 
   {/* PARTE INFERIOR: detalles en columnas */}
   <h3 className="text-lg font-semibold text-gray-800">
         {data.nombre_capacitacion}

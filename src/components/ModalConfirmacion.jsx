@@ -10,7 +10,23 @@ export default function ModalConfirmacion({
   nota_minima,
   fecha_limite,
 }) {
+
+  const intentos = (intento_actual) => {
+    const hecho = intento_actual;
+    console.log("-----");
+  console.log(hecho);
+    // Si es null, undefined o no es un número válido, asumimos que es el primer intento
+    if (!Number.isInteger(hecho)) {
+      return 1;
+    }
+  
+    // Si ya ha hecho intentos válidos, sumamos 1
+    return hecho + 1;
+  }
+
+
   return (
+    
     <AnimatePresence>
       {visible && (
         <Dialog
@@ -41,7 +57,7 @@ export default function ModalConfirmacion({
 
               <p className="text-gray-600">
                 Vas a iniciar el intento{" "}
-                <strong>{intento_actual ?? "?"}</strong> de{" "}
+                <strong>{intentos(intento_actual) ?? "?"}</strong> de{" "}
                 <strong>{intentos_permitidos}</strong>.
               </p>
 

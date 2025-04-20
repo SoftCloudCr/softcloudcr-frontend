@@ -1,6 +1,6 @@
 import { useLocation, useNavigate,useParams } from "react-router-dom";
 import { CheckCircle, XCircle } from "lucide-react";
-
+import CuestionarioLayout from "../../layouts/CuestionarioLayout";
 /**
  * Página de resultados del cuestionario.
  * Muestra nota final, estado de aprobación y tiempo invertido.
@@ -24,8 +24,12 @@ const ResultadoCuestionario = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 p-6">
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center space-y-6">
+
+    <CuestionarioLayout>
+
+    
+    <div className=" min-h-10 rounded-lg md:min-h-screen flex flex-col justify-center items-center bg-gray-100 p-2 md:p-6">
+      <div className="bg-white rounded-2xl shadow-xl p-2 md:p-8 max-w-md w-auto md:w-full text-center space-y-6">
         {aprobado ? (
           <CheckCircle className="text-green-500 mx-auto" size={64} />
         ) : (
@@ -52,6 +56,7 @@ const ResultadoCuestionario = () => {
         </button>
       </div>
     </div>
+    </CuestionarioLayout>
   );
 };
 

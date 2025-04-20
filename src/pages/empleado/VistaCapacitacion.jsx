@@ -50,6 +50,9 @@ function VistaCapacitacion() {
   const cerrarModal = () => setMostrarModal(false);
   const abrirModalConfirmacion = () => setMostrarModalConfirmacion(true);
 
+
+
+
   return (
     <EmpleadoLayout>
       <CardVistaCapacitacion
@@ -77,7 +80,7 @@ function VistaCapacitacion() {
     visible={mostrarModalConfirmacion}
     onClose={() => setMostrarModalConfirmacion(false)}
     onConfirm={() => navigate(`/empresa/${slug}/cuestionario/${id_asignacion}`)}
-    intento_actual={capacitacion.intento_actual}
+    intento_actual={capacitacion.intentos_realizados}
     intentos_permitidos={capacitacion.intentos_permitidos}
     nota_minima={capacitacion.nota_minima}
     fecha_limite={capacitacion.fecha_limite}
