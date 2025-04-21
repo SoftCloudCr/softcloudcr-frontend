@@ -10,7 +10,7 @@ import CapacitacionesEmpleado from "./pages/empleado/CapacitacionesEmpleado";
 import VistaCapacitacion from "./pages/empleado/VistaCapacitacion";
 import Cuestionario from "./pages/empleado/Cuestionario";
 import ResultadoCuestionario from "./pages/empleado/ResultadoCuestionario";
-
+import PrivateRouteAdmin from "./components/PrivateRouteAdmin";
 
 function App() {
   return (
@@ -37,25 +37,40 @@ function App() {
           }
         />
         {/*Ruta del Vista Capacitacion  */}
-          <Route
+        <Route
           path="/empresa/:slug/capacitacion/:id_asignacion"
-          element = {
+          element={
             <PrivateRoute>
-              <VistaCapacitacion/>
+              <VistaCapacitacion />
             </PrivateRoute>
           }
-          />
-          {  /* Ruta de cuestionario */}
-          <Route 
+        />
+        {/* Ruta de cuestionario */}
+        <Route
           path="/empresa/:slug/cuestionario/:id_asignacion"
           element={
             <PrivateRoute>
-              <Cuestionario/>
+              <Cuestionario />
             </PrivateRoute>
           }
-          />
-<Route path="/empresa/:slug/resultado/" element={<ResultadoCuestionario />} />
+        />
+        <Route
+          path="/empresa/:slug/resultado/"
+          element={
+            <PrivateRoute>
+              <ResultadoCuestionario></ResultadoCuestionario>
+            </PrivateRoute>
+          }
+        />
 
+        <Route
+          path="/admin/dashboard"
+          element={
+            <PrivateRouteAdmin>
+              <DashboardAdmin />
+            </PrivateRouteAdmin>
+          }
+        />
       </Routes>
     </AuthProvider>
   );
