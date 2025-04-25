@@ -29,7 +29,7 @@ function LoginEmpleado() {
     }
 
     try {
-      const res = await axios.post("http://10.0.5.143:4000/api/auth/login-empleado/"+slug, {
+      const res = await axios.post("http://192.168.0.101:4000/api/auth/login-empleado/"+slug, {
         codigo_empleado,
         clave,
         //slug,

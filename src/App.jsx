@@ -3,14 +3,19 @@
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
-//Rutas de la pagina
+import PrivateRouteAdmin from "./components/PrivateRouteAdmin";
+import AdminLayout from "./layouts/AdminLayaout";
+//Rutas de la pagina Empleados
 import LoginEmpleado from "./pages/empleado/LoginEmpleado";
 import DashboardEmpleado from "./pages/empleado/DashboardEmpleado";
 import CapacitacionesEmpleado from "./pages/empleado/CapacitacionesEmpleado";
 import VistaCapacitacion from "./pages/empleado/VistaCapacitacion";
 import Cuestionario from "./pages/empleado/Cuestionario";
 import ResultadoCuestionario from "./pages/empleado/ResultadoCuestionario";
-import PrivateRouteAdmin from "./components/PrivateRouteAdmin";
+
+// Rutas de la pagina Admin
+import LoginAdmin from "./pages/admin/LoginAdmin";
+import DashboardAdmin from "./pages/admin/DashboardAdmin";
 
 function App() {
   return (
@@ -62,15 +67,18 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/login" element={<LoginAdmin />} />
 
         <Route
-          path="/admin/dashboard"
-          element={
-            <PrivateRouteAdmin>
-              <DashboardAdmin />
-            </PrivateRouteAdmin>
-          }
-        />
+  path="/admin/dashboard"
+  element={
+    <PrivateRouteAdmin>
+      <AdminLayout>
+        <DashboardAdmin />
+      </AdminLayout>
+    </PrivateRouteAdmin>
+  }
+/>
       </Routes>
     </AuthProvider>
   );
