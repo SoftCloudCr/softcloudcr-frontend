@@ -55,7 +55,7 @@ const SidebarAdmin = ({ expanded, setExpanded }) => {
 
   return (
     <aside
-      className={`fixed md:static top-0 left-0 z-50 h-screen bg-gradient-to-b from-from via-via via-70% to-to shadow-lg shadow-[#2BA1ED]
+      className={`fixed md:static top-0 left-0 z-50 h-auto bg-gradient-to-b from-from via-via via-70% to-to shadow-lg shadow-[#2BA1ED]
       transition-all duration-300 flex flex-col justify-between
       ${expanded ? "w-64" : "sm:w-10 md:w-20"}`}
     >
@@ -250,8 +250,10 @@ const SidebarAdmin = ({ expanded, setExpanded }) => {
         </ul>
      
 
-      {/* 🔒 Cerrar sesión */}
-      <div className="p-2 mb-4">
+
+      </div>
+            {/* 🔒 Cerrar sesión */}
+            <div className="p-2 mb-4">
         <CustomTooltip label={t("sidebar.logout")}>
           <button
             onClick={logout}
@@ -261,7 +263,6 @@ const SidebarAdmin = ({ expanded, setExpanded }) => {
             {expanded && <span>{t("sidebar.logout")}</span>}
           </button>
         </CustomTooltip>
-      </div>
       </div>
     </aside>
   );

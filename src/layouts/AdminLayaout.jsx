@@ -7,31 +7,35 @@ const AdminLayout = ({ children }) => {
 
   return (
 
-    <div className="flex h-full bg-[#E6E8EB] relative">
-      {/* Navbar como overlay arriba */}
-      <div className="absolute top-0 left-0 right-0 z-50">
-        <NavbarEmpleado />
-      </div>
+<div className="flex h-screen bg-[#1f5098] relative overflow-hidden">
+  {/* Navbar fijo arriba */}
+  <div className="absolute top-0 left-0 right-0 z-50">
+    <NavbarEmpleado />
+  </div>
 
+  {/* Contenedor principal con padding superior */}
+  <div className="flex flex-1 pt-16 relative">
+    {/* Overlay en móvil */}
+    {sidebarExpanded && (
+      <div
+        className="fixed inset-0 bg-black/40 z-40 md:hidden"
+        onClick={() => setSidebarExpanded(false)}
+      />
+    )}
 
-      {/* Contenedor principal con padding top para que el navbar no tape */}
-      <div className="flex w-full pt-16 pl-16  md:pl-0   ">
-        
-        {sidebarExpanded && (
-          <div
-            className="fixed inset-0 bg-black/40 z-40 md:hidden"
-            onClick={() => setSidebarExpanded(false)}
-          />
-        )}
-        <SidebarAdmin
-          expanded={sidebarExpanded}
-          setExpanded={setSidebarExpanded}
-        />
-        <main className=" w-auto      md:p-16 p-2 flex-1 transition-all overflow-y-auto">
-          {children}
-        </main>
-      </div>
-    </div>
+    {/* Sidebar con scroll si es necesario */}
+    <SidebarAdmin
+      expanded={sidebarExpanded}
+      setExpanded={setSidebarExpanded}
+    />
+
+    {/* Contenido principal */}
+    <main className="flex-1 overflow-y-auto md:p-16 p-2 transition-all bg-[#f3f4f6]">
+      {children}
+    </main>
+  </div>
+</div>
+
   );
 };
 

@@ -12,6 +12,7 @@ import CapacitacionesEmpleado from "./pages/empleado/CapacitacionesEmpleado";
 import VistaCapacitacion from "./pages/empleado/VistaCapacitacion";
 import Cuestionario from "./pages/empleado/Cuestionario";
 import ResultadoCuestionario from "./pages/empleado/ResultadoCuestionario";
+import CrearPlantilla from "./pages/admin/plantillas/CrearPlantilla";
 
 // Rutas de la pagina Admin
 import LoginAdmin from "./pages/admin/LoginAdmin";
@@ -75,6 +76,17 @@ function App() {
     <PrivateRouteAdmin>
       <AdminLayout>
         <DashboardAdmin />
+      </AdminLayout>
+    </PrivateRouteAdmin>
+  }
+/>
+
+<Route
+  path="/admin/plantillas/crear"
+  element={
+    <PrivateRouteAdmin>
+      <AdminLayout>
+        <CrearPlantilla />
       </AdminLayout>
     </PrivateRouteAdmin>
   }
