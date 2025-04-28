@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import PasoDatosGenerales from "../../../components/plantillas/PasoDatosGenerales";
 import PasoSeleccionarCuestionario from "../../../components/plantillas/PasoSeleccionarCuestionario";
 import PasoAdjuntarMateriales from "../../../components/plantillas/PasoAdjuntarMaterial ";
+import PasoVistaPrevia from "../../../components/plantillas/PasoVistaPrevia";
 
 const CrearPlantilla = () => {
   // Estado principal que almacena todos los datos de la plantilla
@@ -39,7 +40,11 @@ const CrearPlantilla = () => {
   archivos={archivos}
   setArchivos={setArchivos}
   puedeAvanzar={setPuedeAvanzar}
-/>
+/>,
+  <PasoVistaPrevia
+    datos={datosPlantilla}
+    puedeAvanzar={setPuedeAvanzar}
+  />
 
   ];
 

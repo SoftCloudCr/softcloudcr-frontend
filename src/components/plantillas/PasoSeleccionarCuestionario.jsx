@@ -18,7 +18,7 @@ const PasoSeleccionarCuestionario = ({ datos, actualizarDatos, puedeAvanzar }) =
   useEffect(() => {
     const fetchCuestionarios = async () => {
       try {
-        const res = await axios.get(`http://192.168.0.101:4000/api/cuestionarios/${usuario.id_empresa}`);
+        const res = await axios.get(`http://192.168.0.102:4000/api/cuestionarios/${usuario.id_empresa}`);
         setCuestionarios(res.data);
         setError(false);
       } catch (err) {
